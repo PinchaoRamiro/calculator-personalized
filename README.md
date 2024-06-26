@@ -2,6 +2,13 @@
 
 Video demostrativo de la app: https://youtu.be/9Ll4RpPc7UE 
 
+pueden clonar el repositorio en el botton verde de arriva, y con Node.js se deben ejcutar los comandos de 
+npx create-react-app <name-app> 
+luego pasar el archivo de node_modules a la carpeta raiz del proyecto y ejecutar 
+npm start
+para ver en la pantalla del navegador la app
+
+
 Este proyecto fue arrancado con [Create React App](https://github.com/facebook/create-react-app).
 
 ## Scripts disponibles
