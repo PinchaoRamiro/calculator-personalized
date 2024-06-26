@@ -1,5 +1,7 @@
 # Empezando con Create React App
 
+Video demostrativo de la app: https://youtu.be/9Ll4RpPc7UE 
+
 Este proyecto fue arrancado con [Create React App](https://github.com/facebook/create-react-app).
 
 ## Scripts disponibles
