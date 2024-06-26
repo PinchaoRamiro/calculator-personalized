@@ -1,0 +1,32 @@
+.input {
+    height: 55px;
+    width: 100%;
+    border-radius: 40px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-weight: bold;
+    font-size: 30px;
+    background-color: black;
+    color: white;
+    margin: 2px solid white;
+    box-shadow: 2px 2px 2px 6px rgb(252, 0, 0);
+    overflow: auto;
+}
+
+.input:hover {
+    animation: letters 1s 10s;
+}
+
+@keyframes letters {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    } 
+}
