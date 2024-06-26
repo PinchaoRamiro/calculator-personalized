@@ -1,5 +1,7 @@
 import '../stylessheets/Button.css';
 
+//El componente Button es el encargado de mostrar los botones de la calculadora
+// y de controlar eventos de teclado
 function Button(props){
   const esOperador = valor => {
     return isNaN(valor) && (valor !== '.') && (valor !== '=');

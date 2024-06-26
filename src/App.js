@@ -1,33 +1,36 @@
-import './App.css';
-import logoImagen from './assest/logo-calculadora.webp';
-import Button from './componentes/button.jsx';
-import Pantalla from './componentes/pantalla.jsx';
-import ButtonClear from './componentes/buttonClear.jsx';
-import { useState, useEffect } from 'react';
-import { evaluate } from 'mathjs';
+import './App.css'; // Importa los estilos CSS para el componente App
+import logoImagen from './assest/logo-calculadora.webp'; // Importa una imagen del logo de la calculadora
+import Button from './componentes/button.jsx'; // Importa el componente Button
+import Pantalla from './componentes/pantalla.jsx'; // Importa el componente Pantalla
+import ButtonClear from './componentes/buttonClear.jsx'; // Importa el componente ButtonClear
+import { useState, useEffect } from 'react'; // Importa hooks de React
+import { evaluate } from 'mathjs'; // Importa la función evaluate de la librería mathjs para evaluar expresiones matemáticas
 
 function App() {
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState(''); // Declara una variable de estado para almacenar el input del usuario
 
+  // Función para agregar valores al input
   const agregarInput = val => {
     setInput(input + val);
   };
 
+  // Maneja eventos de teclado
   const handleKeyDown = (event) => {
     const { key } = event;
     if (['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '*', '/', '.'].includes(key)) {
       setInput(input + key);
     } else if (key === 'Enter') {
-      if(input.length > 0){
+      if (input.length > 0) {
         CalculateResult();
       }
     } else if (key === 'Backspace') {
-      if(input.length > 0){
+      if (input.length > 0) {
         setInput(input.slice(0, -1));
       }
     }
   };
 
+  // useEffect para añadir y eliminar el evento de teclado
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     return () => {
@@ -35,6 +38,7 @@ function App() {
     };
   }, [input]);
 
+  // Verifica si el input contiene operadores
   const avalueOperadores = (input) => {
     input.forEach(element => {
       if(element === '+' || element === '-' || element === '*' || element === '/'){
@@ -44,18 +48,18 @@ function App() {
     return false;
   }
 
+  // Verifica si la operación es válida
   const isOperation = (input) => {
     const operators = ['+', '-', '*', '/', '%'];
     for (let i = 0; i < input.length; i++) {
-      if (operators.includes(input[i])) {
-        if (operators.includes(input[i + 1])) {
-          return false;
-        }
+      if (operators.includes(input[i]) && operators.includes(input[i + 1])) {
+        return false;
       }
     }
     return true;
   };
 
+  // Calcula el resultado de la operación
   const CalculateResult = () => {
     if (input) {
       try {
@@ -121,4 +125,3 @@ function App() {
 }
 
 export default App;
-
